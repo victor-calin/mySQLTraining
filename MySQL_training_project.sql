@@ -168,7 +168,7 @@ JOIN specializare AS s ON d.id_specializare = s.id;
  
 SELECT 
 	CONCAT(p.nume,' ', p.prenume) AS pacient,
-	CONCAT(d.nume,' ', d.prenume) AS doctor, s.denumire AS 		specializare FROM diagnostic AS di 
+	CONCAT(d.nume,' ', d.prenume) AS doctor, s.denumire AS specializare FROM diagnostic AS di 
 	LEFT JOIN pacienti AS p ON di.id_pacient=p.id
 	LEFT JOIN doctori AS d ON di.id_doctor= d.id
  	LEFT JOIN specializare AS s ON di.id_specializare=s.id;
@@ -176,9 +176,8 @@ SELECT
 
 SELECT 
 	CONCAT(p.nume,' ', p.prenume) AS pacient,
-	CONCAT(d.nume,' ', d.prenume) AS doctor, s.denumire AS 		specializare, di.denumire_diagnostic AS diagnostic,
- 		di.data_consult AS data_consult
- 	FROM diagnostic AS di 
+	CONCAT(d.nume,' ', d.prenume) AS doctor, s.denumire AS specializare, di.denumire_diagnostic AS diagnostic,
+ 		di.data_consult AS data_consult FROM diagnostic AS di 
  	LEFT JOIN pacienti AS p ON  di.id_pacient= p.id
  	LEFT JOIN doctori AS d ON di.id_doctor= d.id
  	LEFT JOIN specializare AS s ON di.id_specializare= s.id;
@@ -190,8 +189,8 @@ SELECT
 */
 
 SELECT * FROM pacienti WHERE id IN (
-	SELECT  DISTINCT id_pacient FROM diagnostic WHERE 			data_consult = ( 
-    			SELECT data_consult FROM diagnostic WHERE 					data_consult > '2017-07-01')
+	SELECT  DISTINCT id_pacient FROM diagnostic WHERE data_consult = ( 
+    			SELECT data_consult FROM diagnostic WHERE data_consult > '2017-07-01')
     
     	);
 
@@ -203,8 +202,8 @@ SELECT * FROM pacienti WHERE id IN (
 
 CREATE VIEW pacienti_recenti AS 
 	SELECT * FROM pacienti WHERE id IN (
-		SELECT  DISTINCT id_pacient FROM diagnostic WHERE  		data_consult = ( 
-			SELECT data_consult FROM diagnostic WHERE 				data_consult > '2017-07-01')
+		SELECT  DISTINCT id_pacient FROM diagnostic WHERE data_consult = ( 
+			SELECT data_consult FROM diagnostic WHERE data_consult > '2017-07-01')
     	);
 
         
