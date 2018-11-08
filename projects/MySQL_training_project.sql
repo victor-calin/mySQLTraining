@@ -2,7 +2,8 @@ CREATE DATABASE proiect_mysql;
 USE proiect_mysql;
 
 
-/* This is a course-training database of a medical clinic in which I added patients, doctors, specialities and the consultation diagnosis. Afterwards I followed the project requirements.
+/* This is a course-training database of a medical clinic in which I added patients, doctors, specialities 
+	and the consultation diagnosis. Afterwards I followed the project requirements.
 */
 
 /* Requirment 1: Create a database with 4 tables and the specific links between them.
@@ -197,7 +198,8 @@ SELECT * FROM pacienti WHERE id IN (
 
 
 
-/* Requirment 10: Create 2 views based on the last 2 queries from requirment 8. Select, insert and delete data in one view then delete the views. 
+/* Requirment 10: Create 2 views based on the last 2 queries from requirment 8. Select, insert and delete data 
+	in one view then delete the views. 
 */
 
 CREATE VIEW pacienti_recenti AS 
